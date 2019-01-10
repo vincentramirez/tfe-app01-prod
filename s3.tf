@@ -1,4 +1,6 @@
-# S3 bucket config
+provider "aws" {}
+
+# S3 bucket config //-----------------------------------------------------------------
 
 resource "aws_s3_bucket" "examples3" {
   # NOTE: S3 bucket names must be unique across _all_ AWS accounts, so
