@@ -1,4 +1,3 @@
-
 #EC2 INSTANCE(s)//-------------------------------------------------------------
 #Trusted AMI: ami-009d6802948d06e52
 #Trusted Subnet: subnet-05f417996108c1f5f
