@@ -12,7 +12,7 @@ resource "aws_security_group" "sg" {
   tags {
       Name = "egress-all-ports"
   }
-}
+ }
 
   ingress {
       from_port = 22
@@ -22,4 +22,5 @@ resource "aws_security_group" "sg" {
   tags {
       Name = "allow-ssh"
   }
+ }
 }
