@@ -11,7 +11,7 @@ resource "aws_instance" "ec2" {
   subnet_id = "subnet-05f417996108c1f5f"
 
   # security group
-  # vpc_security_group_ids = ["sg-0d1b21350b7259316"]
+   vpc_security_group_ids = ["sg-0d1b21350b7259316"]
 
   # the public SSH key
   key_name = "vinnie"
