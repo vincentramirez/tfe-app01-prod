@@ -8,10 +8,10 @@ resource "aws_instance" "ec2" {
   instance_type = "t2.micro"
 
   # VPC subnet
-  subnet_id = "subnet-015d842f592799509"
+  #subnet_id = "subnet-015d842f592799509"
 
   # security group
-   vpc_security_group_ids = ["sg-0d1b21350b7259316"]
+  # vpc_security_group_ids = ["sg-0d1b21350b7259316"]
 
   # the public SSH key
   key_name = "vinnie"
