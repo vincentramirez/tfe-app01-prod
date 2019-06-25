@@ -1,12 +1,5 @@
 #VPC//------------------------------------------------------------------------- 
 
-variable "vpc" {}
-
-data "aws_vpc" "selected" {
-  tags {
-    Name = "${var.vpc}"
-  }
-}
 
 resource "aws_vpc" "vpc" {
     cidr_block = "11.0.0.0/16"
@@ -22,7 +15,7 @@ resource "aws_vpc" "vpc" {
 
 # Subnets
 resource "aws_subnet" "subnet-public-1" {
-    vpc_id = "${data.aws_vpc.selected.id}"
+    vpc_id = "${aws_vpc.vpc.id}"
     cidr_block = "11.0.1.0/24"
     map_public_ip_on_launch = "true"
     availability_zone = "us-east-1a"
@@ -32,7 +25,7 @@ resource "aws_subnet" "subnet-public-1" {
     }
 }
 resource "aws_subnet" "subnet-public-2" {
-    vpc_id = "${data.aws_vpc.selected.id}"
+    vpc_id = "${aws_vpc.vpc.id}"
     cidr_block = "11.0.2.0/24"
     map_public_ip_on_launch = "true"
     availability_zone = "us-east-1b"
@@ -42,7 +35,7 @@ resource "aws_subnet" "subnet-public-2" {
     }
 }
 resource "aws_subnet" "subnet-public-3" {
-    vpc_id = "${data.aws_vpc.selected.id}"
+    vpc_id = "${aws_vpc.vpc.id}"
     cidr_block = "11.0.3.0/24"
     map_public_ip_on_launch = "true"
     availability_zone = "us-east-1c"
@@ -52,7 +45,7 @@ resource "aws_subnet" "subnet-public-3" {
     }
 }
 resource "aws_subnet" "subnet-private-1" {
-    vpc_id = "${data.aws_vpc.selected.id}"
+    vpc_id = "${aws_vpc.vpc.id}"
     cidr_block = "11.0.4.0/24"
     map_public_ip_on_launch = "false"
     availability_zone = "us-east-1a"
@@ -62,7 +55,7 @@ resource "aws_subnet" "subnet-private-1" {
     }
 }
 resource "aws_subnet" "subnet-private-2" {
-    vpc_id = "${data.aws_vpc.selected.id}"
+    vpc_id = "${aws_vpc.vpc.id}"
     cidr_block = "11.0.5.0/24"
     map_public_ip_on_launch = "false"
     availability_zone = "us-east-1b"
@@ -72,7 +65,7 @@ resource "aws_subnet" "subnet-private-2" {
     }
 }
 resource "aws_subnet" "subnet-private-3" {
-    vpc_id = "${data.aws_vpc.selected.id}"
+    vpc_id = "${aws_vpc.vpc.id}"
     cidr_block = "11.0.6.0/24"
     map_public_ip_on_launch = "false"
     availability_zone = "us-east-1c"
@@ -84,7 +77,7 @@ resource "aws_subnet" "subnet-private-3" {
 
 # Internet GW
 resource "aws_internet_gateway" "internet-gw" {
-    vpc_id = "${data.aws_vpc.selected.id}"
+    vpc_id = "${aws_vpc.vpc.id}"
 
     tags {
         Name = "vinnie-gw"
@@ -93,7 +86,7 @@ resource "aws_internet_gateway" "internet-gw" {
 
 # route tables
 resource "aws_route_table" "subnet-public" {
-    vpc_id = "${data.aws_vpc.selected.id}"
+    vpc_id = "${aws_vpc.vpc.id}"
     route {
         cidr_block = "0.0.0.0/0"
         gateway_id = "${aws_internet_gateway.internet-gw.id}"
