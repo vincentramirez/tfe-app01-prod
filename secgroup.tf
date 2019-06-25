@@ -1,5 +1,6 @@
 #SECURITY GROUP(s)//-----------------------------------------------------------  
 
+variable "vpc" {}
 
 data "aws_vpc" "selected" {
   tags {
