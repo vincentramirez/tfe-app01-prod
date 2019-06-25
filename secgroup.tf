@@ -1,7 +1,15 @@
 #SECURITY GROUP(s)//-----------------------------------------------------------  
 
+variable "vpc" {}
+
+data "aws_vpc" "selected" {
+  tags {
+    Name = "${var.vpc}"
+  }
+}
+
 resource "aws_security_group" "sg" {
-  vpc_id = "vpc-0c295ab1b7fc7a43f"
+  vpc_id = "${data.aws_vpc.selected.id}"
   name = "vinnie-sgtest"
   description = "security group that allows ssh and all egress traffic"
   egress {
