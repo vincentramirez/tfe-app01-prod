@@ -5,7 +5,7 @@ resource "aws_s3_bucket" "examples3" {
   # this name must be changed before applying this example to avoid naming
   # conflicts.
   bucket = "vinnie-examples3-11223344"
-  acl    = "public"
+  acl    = "public-read"
  
   /*
   server_side_encryption_configuration {
