@@ -3,7 +3,7 @@
 #Trusted Subnet: subnet-<id>
 
 resource "aws_instance" "ec2" {
-  count = "1"
+  count = "2"
   ami           = "ami-0cfee17793b08a293"
   instance_type = "t2.micro"
 
