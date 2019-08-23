@@ -18,7 +18,7 @@ resource "aws_instance" "ec2" {
 
   # tags
   tags {
-    Name = "vinnie-test-vm"
+ #   Name = "vinnie-test-vm"
     owner = "vinnie@hashicorp.com"
     TTL = 1
   }
