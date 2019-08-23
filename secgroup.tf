@@ -1,6 +1,6 @@
 #SECURITY GROUP(s)//-----------------------------------------------------------  
 
-
+/*
 resource "aws_security_group" "sg" {
   vpc_id = "vpc-xxxxxxx"
   name = "vinnie-sgtest"
@@ -19,3 +19,4 @@ resource "aws_security_group" "sg" {
       cidr_blocks = ["0.0.0.0/0"]
  }
 }
+*/
